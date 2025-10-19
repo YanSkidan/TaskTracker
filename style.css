@@ -239,3 +239,41 @@ a{
 a:hover{
   color: rgb(58, 58, 252);
 }
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+  .week {
+    justify-content: center; /* Центрируем элементы */
+    gap: 20px; /* Уменьшаем расстояние между элементами */
+    padding: 0 10px; /* Добавляем отступы по бокам */
+    justify-content: center;
+  }
+  
+  .weeks {
+    min-width: 90%; /* Занимает почти всю ширину */
+    max-width: 300px; /* Но не больше 300px */
+    margin-bottom: 20px;
+    padding-left: 0; /* Убираем левый отступ */
+    text-align: center; /* Центрируем текст */
+  }
+  
+  .weeks_h {
+    justify-content: center; /* Центрируем заголовки */
+    gap: 10px;
+  }
+  
+  .weeks_ul {
+    display: flex;
+    justify-content: center;
+  }
+  
+  ul {
+    width: auto; /* Убираем фиксированную ширину */
+  }
+  
+  li {
+    width: 100%; /* Занимает всю доступную ширину */
+    max-width: 280px; /* Но не больше 280px */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
