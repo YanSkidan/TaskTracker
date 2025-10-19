@@ -1,0 +1,241 @@
+body{
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+h1{
+  font-size: clamp(24px,2.25vw,50px);
+}
+header{
+  padding-left: 1%;
+  margin-bottom: 3%;
+  padding-top: 0.13%;
+  display: flex;
+}
+.week{
+  width: 100%;
+  min-height: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+}
+.weeks{
+  min-width: 250px;
+  padding-left: 1%;
+  min-height: 300px;
+  margin-bottom: 1.8%;
+}
+h2{
+  font-size: clamp(15px,1.35vw,35px);
+}
+.weeks_h{
+  border-bottom: 1.6px solid black;
+  display: flex;
+}
+.en_h{
+  margin-left: auto;
+  color: #b0b0b0;
+  border-radius: 10px;
+  padding-left:7px;
+  padding-right:7px;
+}
+.mon_h{
+  background-color: #21ffa1;
+}
+.tue_h{
+  background-color: #fdef5d;
+}
+.wed_h{
+  background-color: rgb(103, 249, 249);
+}
+.thu_h{
+  background-color: #fbb5b5;
+}
+.fri_h{
+  background-color: #eac0ff;
+}
+.sat_h{
+  background-color: #f8c077;
+}
+.sun_h{
+  background-color: #cacafe;
+}
+ul{
+  display: block;
+  width: 100%;
+  padding: 0;
+   margin: 0;
+}
+li{
+  display: flex;
+  align-items: end; 
+  padding-left: 8px;
+  padding-bottom: 3px;
+  border-bottom: 1.59px solid #cfcfcf;
+  width: 250px;
+  max-width: 250px;
+  min-height: 40px;
+  box-sizing: border-box;
+  margin-top: 10%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  min-width: 0;
+}
+
+li:hover{
+  border-bottom: 1.5px solid #ada2f6;
+}
+.task_tracker{
+  margin-left: auto;
+  margin-top: 1.5%;
+  font-size: clamp(20px,1.7vw,45px);
+  margin-right: 2.4%;
+  padding-left: 12px;
+  padding-right: 12px;
+  background-color: #c3b3ff;
+  border-radius: 18px;
+  padding-top: 5px;
+  color: rgb(43, 42, 42);
+}
+span:hover{
+  cursor: default;
+}
+span{
+  user-select: none;
+}
+li.completed{
+  text-decoration: line-through;
+  color: #828181;
+}
+
+.center-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 480px;
+    aspect-ratio: 2/1.2;
+    width: 90%;
+    animation: modalAppear 0.3s ease;
+    text-align: center;
+    padding-top: 0.8%;
+}
+
+.input_zad{
+  display: block;
+  width: 90%;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5%;
+  border: none;
+  border-bottom: 1.5px solid black;
+  padding-left: 1%;
+  font-size: clamp(16px,1.25vw,30px);
+  box-sizing: border-box; 
+  padding-top: 2%;
+  white-space: nowrap;
+  overflow: hidden; 
+  min-width: 0;
+  max-width: 100%;
+}
+.input_zad:focus{
+  border: none;
+  outline: none;
+  border-bottom: 1.5px solid black;
+}
+.input_zad::placeholder{
+  font-size: clamp(16px,1.25vw,30px);
+}
+.input_zad_area{
+  display: block;
+  width: 90%;
+  height: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  padding-left: 1%;
+  font-size: clamp(16px,1.25vw,30px);
+  box-sizing: border-box; 
+  padding-top: 2%;
+  white-space: nowrap;
+  overflow: hidden; 
+  min-width: 0;
+  max-width: 100%;
+  margin-bottom: 5%;
+}
+.input_zad_area:focus{
+  border: none;
+  outline: none;
+}
+.input_zad_area::placeholder{
+  font-size: clamp(16px,1.25vw,30px);
+}
+.close-btn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+footer{
+  margin-top: auto;
+  display: flex;
+  width: 100%;
+  min-height: 300px;  
+  background-color: rgb(62, 62, 62);
+  margin-top: 5%;
+  color: white;
+  padding-left: 4%;
+  padding-top: 0.5%;
+  gap: 130px;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+.contacts, .social {
+    flex: 0 1 auto; 
+    max-width: 300px;
+}
+h3{
+  font-size: clamp(20px,1.7vw,45px);
+}
+p{
+  font-size: clamp(16px,1.2vw,35px);
+  padding-bottom: 15px;
+}
+a{
+  color: white;
+}
+a:hover{
+  color: rgb(58, 58, 252);
+}
