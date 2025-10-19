@@ -1,3 +1,42 @@
+// Функции для работы с LocalStorage
+function saveAllTasks() {
+    const allTasks = {};
+    
+    // Собираем все задачи со страницы
+    document.querySelectorAll('li').forEach(li => {
+        const id = li.id;
+        if (id) {
+            allTasks[id] = {
+                text: li.textContent.replace('✓', '').trim(),
+                completed: li.classList.contains('completed'),
+                additionalInfo: li.dataset.additionalInfo || ''
+            };
+        }
+    });
+    
+    localStorage.setItem('taskTrackerData', JSON.stringify(allTasks));
+}
+
+function loadAllTasks() {
+    const savedData = localStorage.getItem('taskTrackerData');
+    if (savedData) {
+        const allTasks = JSON.parse(savedData);
+        
+        // Восстанавливаем задачи
+        Object.keys(allTasks).forEach(taskId => {
+            const task = allTasks[taskId];
+            const li = document.getElementById(taskId);
+            if (li) {
+                li.textContent = task.text;
+                li.dataset.additionalInfo = task.additionalInfo;
+                if (task.completed) {
+                    li.classList.add('completed');
+                }
+            }
+        });
+    }
+}
+
 //Для каждого LI на странице запускаем ф-цию
 document.querySelectorAll('li').forEach(li => {
   li.addEventListener('click', function(event) {
@@ -7,6 +46,7 @@ document.querySelectorAll('li').forEach(li => {
     }
   });
 });
+
 //Появление окна для ввода задачи в LI
 function showCenterDiv(content, liElement) {
     //Удаление старого окна(При наличии), чтобы не было дублей
@@ -91,6 +131,9 @@ function saveAndClose(modal) {
             modal.currentLi.dataset.additionalInfo = '';
         }
         
+        // Сохраняем ВСЕ задачи в LocalStorage
+        saveAllTasks();
+        
         // Добавляем обработчики на обновленный элемент
         addClickHandler(modal.currentLi);
         addHoverHandlers(modal.currentLi);
@@ -138,6 +181,9 @@ function addHoverHandlers(li) {
                 event.stopPropagation();
                 const liElement = this.parentElement;
                 liElement.classList.toggle('completed');
+                
+                // Сохраняем состояние выполнения задачи
+                saveAllTasks();
             });
             this.appendChild(span);
         }
@@ -151,8 +197,24 @@ function addHoverHandlers(li) {
     });
 }
 
+// Функция для очистки всех данных (опционально, для отладки)
+function clearAllTasks() {
+    localStorage.removeItem('taskTrackerData');
+    location.reload();
+}
+
 // Инициализация для всех существующих li
 document.querySelectorAll('li').forEach(li => {
     addClickHandler(li);
     addHoverHandlers(li);
+});
+
+// Загружаем сохраненные задачи при загрузке страницы
+document.addEventListener('DOMContentLoaded', function() {
+    loadAllTasks();
+});
+
+// Сохраняем задачи при закрытии/обновлении страницы
+window.addEventListener('beforeunload', function() {
+    saveAllTasks();
 });
