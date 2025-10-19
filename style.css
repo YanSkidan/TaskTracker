@@ -245,7 +245,6 @@ a:hover{
     justify-content: center; /* Центрируем элементы */
     gap: 20px; /* Уменьшаем расстояние между элементами */
     padding: 0 10px; /* Добавляем отступы по бокам */
-    justify-content: center;
   }
   
   .weeks {
@@ -261,13 +260,10 @@ a:hover{
     gap: 10px;
   }
   
-  .weeks_ul {
-    display: flex;
-    justify-content: center;
-  }
+  
   
   ul {
-    width: auto; /* Убираем фиксированную ширину */
+    width: 100%; /* Убираем фиксированную ширину */
   }
   
   li {
